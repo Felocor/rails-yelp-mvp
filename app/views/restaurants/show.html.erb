@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+
+    <h1><%= @restaurant.name %></h1>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @restaurant.address %>
+    </p>
+
+    <p>
+      <strong>Phone number:</strong>
+      <%= @restaurant.phone_number %>
+    </p>
+
+    <p>
+      <strong>Category:</strong>
+      <%= @restaurant.category %>
+    </p>
+
+    <div class="reviews">
+      <ul>
+        <% @restaurant.reviews.each do |r| %>
+        <li>
+          <%= r.content %> | <%= r.rating %>
+        </li>
+        <% end %>
+      </ul>
+
+      <div>
+        <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', @restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+        <%= link_to 'Back', restaurants_path %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
